@@ -1,0 +1,24 @@
+<table>
+    <thead ng-init="mctrl.sorter='id'; mctrl.reverse=false;">
+    <tr>
+        <th ng-click="mctrl.sorter='id'; mctrl.reverse= !mctrl.reverse;">ID</th>
+        <th ng-click="mctrl.sorter='firstName'; mctrl.reverse= !mctrl.reverse;">First Name</th>
+        <th ng-click="mctrl.sorter='lastName'; mctrl.reverse= !mctrl.reverse;">Last Name</th>
+        <th ng-click="mctrl.sorter='city'; mctrl.reverse= !mctrl.reverse;">City</th>
+        <th ng-click="mctrl.sorter='phone'; mctrl.reverse= !mctrl.reverse;">Phone</th>
+        <th ng-click="mctrl.sorter='email'; mctrl.reverse= !mctrl.reverse;">Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in mctrl.people | filter:mctrl.searchStr | orderBy:mctrl.sorter:mctrl.reverse">
+        <td>{{p.id}}</td>
+        <td>{{p.firstName}}</td>
+        <td>{{p.lastName}}</td>
+        <td>{{p.city}}</td>
+        <td>{{p.phone}}</td>
+        <td>{{p.email}}</td>
+        <td><i ng-click="mctrl.deletePerson($index)" class="fa fa-trash"></i></td>
+    </tr>
+    </tbody>
+</table>
